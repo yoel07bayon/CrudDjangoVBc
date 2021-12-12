@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
+
 from rest_framework import routers    
 from apirest import views
-from clientes.views import ClienteListView
+
+from rest_framework.authtoken import views as vtoken
+
+#from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+
+#from clientes.views import ClienteListView
 
 
 router=routers.DefaultRouter()
@@ -27,5 +33,10 @@ router.register('clientes', views.ClienteViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('clientes',ClienteListView.as_view(template_name="clientes/index.html"),name='listar')
+
+    path('api-token-auth/',vtoken.obtain_auth_token),
+    #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    #path('clientes',ClienteListView.as_view(template_name="clientes/index.html"),name='listar')
 ]
