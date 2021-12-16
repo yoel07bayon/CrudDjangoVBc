@@ -29,12 +29,14 @@ from rest_framework.authtoken import views as vtoken
 
 router=routers.DefaultRouter()
 router.register('clientes', views.ClienteViewSet)
+router.register('preguntas', views.PreguntaViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
 
     path('api-token-auth/',vtoken.obtain_auth_token),
+    
     #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 

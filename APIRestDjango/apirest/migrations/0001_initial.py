@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('apellidos', models.CharField(max_length=50)),
                 ('dni', models.CharField(max_length=8)),
                 ('celular', models.CharField(max_length=20, null=True)),
-                ('email', models.EmailField(max_length=50)),
+                ('sexo', models.EmailField(max_length=50)),
                 ('created', models.DateField(auto_now_add=True)),
                 ('updated', models.DateField(auto_now=True)),
             ],
